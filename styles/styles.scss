@@ -147,8 +147,8 @@
           font-size: 14px;
           color: #fff;
           background-color: transparent;
-          padding: 5px 5px;
-          padding-top: 10px;
+          padding: 0 5px 5px 5px;
+          line-height: 25px;
           outline: none;
           border: none;
           resize: none;
@@ -165,6 +165,81 @@
             transform: translateX(0);
           }
         }
+      }
+    }
+  }
+  .messages {
+    display: none;
+  }
+  #elMessage {
+    font-size: 14px;
+    padding-left: 7px;
+  }
+  .error-message {
+    position: absolute;
+    z-index: 5;
+    top: 5vh;
+    right: 0;
+    left: 0;
+    font-size: 16px;
+    @include size(300px, 50px);
+    color: #fff;
+    //background-color: #64ff38; //sent
+    background-color: #630b0b; //error
+    border-radius: 5px;
+    padding: 5px;
+    @include flexCenter(row, space-evenly, center);
+
+    .icon-container {
+      @include size(30px, 30px);
+      background-color: #fff;
+      border-radius: 2000px;
+      @include flexCenter(row, center, center);
+
+      .icon {
+        margin-top: -2px;
+        @include size(35px, 35px);
+      }
+
+      .check-icon {
+        display: none;
+      }
+      .error-icon {
+        display: block;
+      }
+    }
+  }
+
+  .ok-message {
+    position: absolute;
+    z-index: 5;
+    top: 5vh;
+    right: 0;
+    left: 0;
+    font-size: 16px;
+    @include size(300px, 50px);
+    color: #fff;
+    background-color: green; //sent
+    border-radius: 5px;
+    padding: 5px;
+    @include flexCenter(row, space-around, center);
+
+    .icon-container {
+      @include size(30px, 30px);
+      background-color: #fff;
+      border-radius: 2000px;
+      @include flexCenter(row, center, center);
+
+      .icon {
+        margin-top: -2px;
+        @include size(35px, 35px);
+      }
+
+      .check-icon {
+        display: block;
+      }
+      .error-icon {
+        display: none;
       }
     }
   }
@@ -188,7 +263,7 @@
 @media (max-width: 720px) {
   .about {
     @include size(100%, 100vh);
-    @include flexCenter(column, flex-start, center);
+    @include flexCenter(column, center, center);
 
     .form {
       @include size(100%, 500px);

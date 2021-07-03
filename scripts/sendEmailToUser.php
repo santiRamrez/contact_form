@@ -1,7 +1,8 @@
 <?php
 
   //Confirmation Message
-  $emailUser = $_POST['data'];
+  $emailUser = $_POST['email'];
+	echo "$emailUser";
 	
   if (isset($emailUser)) { 
 			

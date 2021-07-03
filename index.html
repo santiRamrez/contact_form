@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./node_modules/animate.css/animate.css" />
     <title>Contact Form</title>
   </head>
   <body>
@@ -12,7 +13,7 @@
       <canvas id="tenPrintCanvas"></canvas>
       <div class="form">
         <!-- method="POST" action="send_email.php" -->
-        <form id="contactForm">
+        <form id="contactForm" onsubmit="validateData()">
           <div class="form_container">
             <input type="text" id="name" autocomplete="off" required />
             <label id="name_label" for="name">
@@ -34,9 +35,26 @@
           </div>
         </form>
       </div>
+      <!-- Show messages to the user -->
+      <div class="messages animate__animated animate__bounceInLeft">
+        <div class="icon-container">
+          <img
+            src="./images/check-circle-solid.svg"
+            alt="message sent"
+            class="check-icon icon"
+          />
+          <img
+            src="./images/times-circle-solid.svg"
+            alt="message sent"
+            class="error-icon icon"
+          />
+        </div>
+        <p id="elMessage">Message sent successfully!</p>
+      </div>
     </section>
-    <script src="./scripts/ajaxToPhp.js"></script>
-    <script src="./scripts/validation_form.js?v=0.1"></script>
-    <!--<script src="tenPrint.js"></script>-->
+
+    <script src="./scripts/ajaxToPhp.js?v=0.2"></script>
+    <script src="./scripts/validation_form.js?v=0.2"></script>
+    <script src="./scripts/tenPrint.js"></script>
   </body>
 </html>

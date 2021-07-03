@@ -12,8 +12,8 @@
 	$email = $data->email;
 	$message = $data->message;
 
-	$emailUser = $data->email;
-
+	echo "$name \n$email \n$message";
+	
 	if(isset($name) && isset($email) && isset($message)) {
 	
 			// Data To Send to me

@@ -238,8 +238,8 @@
   font-size: 14px;
   color: #fff;
   background-color: transparent;
-  padding: 5px 5px;
-  padding-top: 10px;
+  padding: 0 5px 5px 5px;
+  line-height: 25px;
   outline: none;
   border: none;
   resize: none;
@@ -258,6 +258,146 @@
 .about .form form .textarea_container textarea:valid + label::after {
   -webkit-transform: translateX(0);
           transform: translateX(0);
+}
+
+.about .messages {
+  display: none;
+}
+
+.about #elMessage {
+  font-size: 14px;
+  padding-left: 7px;
+}
+
+.about .error-message {
+  position: absolute;
+  z-index: 5;
+  top: 5vh;
+  right: 0;
+  left: 0;
+  font-size: 16px;
+  width: 300px;
+  height: 50px;
+  color: #fff;
+  background-color: #630b0b;
+  border-radius: 5px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about .error-message .icon-container {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 2000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about .error-message .icon-container .icon {
+  margin-top: -2px;
+  width: 35px;
+  height: 35px;
+}
+
+.about .error-message .icon-container .check-icon {
+  display: none;
+}
+
+.about .error-message .icon-container .error-icon {
+  display: block;
+}
+
+.about .ok-message {
+  position: absolute;
+  z-index: 5;
+  top: 5vh;
+  right: 0;
+  left: 0;
+  font-size: 16px;
+  width: 300px;
+  height: 50px;
+  color: #fff;
+  background-color: green;
+  border-radius: 5px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about .ok-message .icon-container {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 2000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about .ok-message .icon-container .icon {
+  margin-top: -2px;
+  width: 35px;
+  height: 35px;
+}
+
+.about .ok-message .icon-container .check-icon {
+  display: block;
+}
+
+.about .ok-message .icon-container .error-icon {
+  display: none;
 }
 
 @media (max-width: 1000px) {
@@ -302,9 +442,9 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;

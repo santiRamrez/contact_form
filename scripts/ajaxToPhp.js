@@ -22,6 +22,9 @@ myData.forEach((data) => {
 //render the ideal format of the inputs name and email to the users
 myData.forEach((data) => {
   data.addEventListener("focusout", function () {
+    if (username == undefined && email == undefined) {
+      return;
+    }
     elName.value = "";
     elName.value = username;
 
@@ -30,7 +33,7 @@ myData.forEach((data) => {
   });
 });
 
-function postUserDataToMyEmail(e) {
+function postDataToYou(e) {
   e.preventDefault(); //Don't send the data when the page has loaded
 
   var data = {
@@ -44,11 +47,13 @@ function postUserDataToMyEmail(e) {
 
   let xhr = new XMLHttpRequest();
 
-  xhr.open("POST", "./send_email.php", true);
+  xhr.open("POST", "./scripts/sendEmailToYou.php", true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
   xhr.onload = function () {
     if (this.status == 200) {
+      //Function declared on validaton_form.js
+      showOkMessage("Your message has been sent!");
       console.log(this.responseText);
     } else if (this.status == 404) {
       console.log("No lo lograste bebe");
@@ -57,18 +62,27 @@ function postUserDataToMyEmail(e) {
   xhr.send(params);
 }
 
-function postEmailToSendResponse(e) {
+function postDataToUser(e) {
   e.preventDefault(); //Don't send the data when the page has loaded
 
-  userEmail = email;
-  var params = "data=" + email;
+  var data = {
+    name: username,
+    email: email,
+    message: message,
+  };
+
+  //var jsonContactForm = JSON.stringify(data);
+  var params = "email=" + data.email;
 
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "send_email_to_user.php", true);
+
+  xhr.open("POST", "./scripts/sendEmailToUser.php", true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
   xhr.onload = function () {
     if (this.status == 200) {
+      //Function declared on validaton_form.js
+      //showOkMessage("Your message has been sent!");
       console.log(this.responseText);
     } else if (this.status == 404) {
       console.log("No lo lograste bebe");
@@ -77,6 +91,18 @@ function postEmailToSendResponse(e) {
   xhr.send(params);
 }
 
-/*
-contactForm.addEventListener("submit", postUserDataToMyEmail);
-contactForm.addEventListener("submit", postEmailToSendResponse);*/
+let button = document.getElementById("btnSendForm");
+
+function sendToPhpFiles(e) {
+  e.preventDefault();
+
+  if (validateData()) {
+    postDataToUser(e);
+    postDataToYou(e);
+    console.log(validateData());
+  } else {
+    validateData();
+  }
+}
+
+contactForm.addEventListener("submit", sendToPhpFiles);
